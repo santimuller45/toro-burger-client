@@ -1,0 +1,14 @@
+.nav {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    gap: 2.5rem;
+    padding: 2rem;
+}
+.logo{
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 10%;
+    height: 10%;
+}

@@ -1,0 +1,1 @@
+export const GET_FOOD_MENU = "GET_FOOD_MENU";
