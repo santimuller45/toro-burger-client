@@ -1,4 +1,4 @@
-import { GET_FOOD_MENU } from "./types/typesFood.js";
+import { GET_FOOD_BY_NAME, GET_FOOD_MENU } from "./types/typesFood.js";
 import { LOG_IN_USER , LOG_OUT_USER , ALL_USERS , SET_USER } from "./types/typesUser.js";
 
 const initialState = {
@@ -15,6 +15,12 @@ const rootReducer = (state = initialState, action) => {
                 menu: action.payload
             }
         };
+        case GET_FOOD_BY_NAME: {
+            return {
+                ...state,
+                menu: action.payload
+            }
+        }
         case ALL_USERS: {
             return {
                 ...state,

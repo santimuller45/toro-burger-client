@@ -2,7 +2,7 @@ import React from 'react'
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { Route, Routes } from 'react-router-dom'
-import foodMenu from "./redux/actions/actionsFood.js";
+import { foodMenu } from "./redux/actions/actionsFood.js";
 import axios from "axios";
 // import './App.css'
 import { LandingPage , NavBar , Products , AboutUs, Contact , UserNav , Detail , LoginPage , RegisterPage } from './views/index.js'
