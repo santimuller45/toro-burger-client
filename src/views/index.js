@@ -7,5 +7,6 @@ import UserNav from "./UserNav/UserNav.jsx";
 import Detail from "./Detail/Detail.jsx";
 import LoginPage from "./LoginPage/LoginPage.jsx";
 import RegisterPage from "./RegisterPage/RegisterPage.jsx";
+import Footer from "./Footer/Footer.jsx";
 
-export { LandingPage , NavBar , Products , AboutUs , Contact , UserNav , Detail , LoginPage , RegisterPage };
+export { LandingPage , NavBar , Products , AboutUs , Contact , UserNav , Detail , LoginPage , RegisterPage , Footer };

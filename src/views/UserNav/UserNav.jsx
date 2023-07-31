@@ -30,9 +30,7 @@ const UserNav = () => {
 
     return (
     <nav className={styles.nav}>
-        <figure>
-            <img src={logo} alt="logo" className={styles.logo}/>
-        </figure>
+        <img src={logo} alt="logo" className={styles.logo}/>
         {user.email 
             ? 
             <div>

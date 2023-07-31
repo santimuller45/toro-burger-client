@@ -6,9 +6,6 @@
     padding: 2rem;
 }
 .logo{
-    display: flex;
-    justify-content: flex-start;
-    align-items: flex-start;
-    width: 10%;
-    height: 10%;
+    width: 4%;
+    height: 4%;
 }

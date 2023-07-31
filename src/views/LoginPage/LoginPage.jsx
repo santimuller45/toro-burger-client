@@ -6,7 +6,7 @@ import { useSelector , useDispatch } from "react-redux";
 import { userLogin } from "../../redux/actions/actionsUser.js";
 
 // React-Bootstrap
-import Form from "react-bootstrap/Form"
+import Form from "react-bootstrap/Form";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";

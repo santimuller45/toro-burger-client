@@ -1,0 +1,11 @@
+.container {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+.logo{
+    width: 5%;
+    height: 5%;
+}
