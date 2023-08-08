@@ -20,8 +20,10 @@ function App() {
   return (
     <div className="App">
       <header className="container-fluid">
-        <UserNav/>
-        <NavBar/>
+        <div className="row justtify-content-center align-items-center">
+          <UserNav/>
+          <NavBar/>
+        </div>
       </header>
       <Routes>
         <Route path='/' element={<LandingPage />}></Route>
@@ -32,7 +34,7 @@ function App() {
         <Route path='/login' element={<LoginPage/>}></Route>
         <Route path='/register' element={<RegisterPage/>}></Route>
       </Routes>
-      <footer>
+      <footer className="container-fluid">
         <Footer/>
       </footer>
     </div>

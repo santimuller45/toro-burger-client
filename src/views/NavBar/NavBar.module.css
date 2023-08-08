@@ -1,7 +1,31 @@
 .nav {
     display: flex;
-    justify-content: space-evenly;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    background-color: #cecece;
+    color:#edab5f !important;
+    font-weight: bolder;
+    width: 100%;
+}
+.nav .item:hover {
+    background-color: #646362;
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
+}
+.item {
+    position: relative;
+    background-color: transparent;
+    color: #414141;
+    font-weight: bolder;
+    margin: auto;
     align-items: center;
-    border:  2px solid black;
-    border-radius: 15px;
+    padding: 5px;
+    cursor: pointer;
+    border: none;
+    font-size: 16px;
+    margin: 0 10px;
+    text-decoration: none;
+    text-align: center;
 }

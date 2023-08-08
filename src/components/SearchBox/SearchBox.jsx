@@ -8,6 +8,7 @@ import { getFoodByName } from "../../redux/actions/actionsFood.js";
 
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
+import Stack from 'react-bootstrap/Stack';
 
 const SearchBox = () => {
 
@@ -27,15 +28,18 @@ const SearchBox = () => {
     };
 
     return (
-        <Form onSubmit={searchHandler} className={style.formContainer}>
-            <Form.Control 
-                className="me-auto"
-                type="text"
-                placeholder="Buscar..."
-                name='food'
-                onChange={foodHandler}
-            />
-            <Button variant="btn btn-outline-success" type='submit' >🔎</Button>
+        <Form onSubmit={searchHandler} className='col-6 mx-auto mt-3'>
+             <Stack direction="horizontal" >
+                <Form.Control 
+                    className="me-auto"
+                    type="text"
+                    placeholder="Buscar..."
+                    name='food'
+                    onChange={foodHandler}
+                />
+                <Button variant="btn btn-outline-success" type='submit' >🔎</Button>
+                <Button variant="btn btn-danger" type='reset' >X</Button>
+             </Stack>
         </Form>
     )
 };

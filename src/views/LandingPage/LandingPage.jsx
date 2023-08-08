@@ -7,19 +7,13 @@ import pic3 from "../../assets/pictures/image3.jpeg"
 
 const LandingPage = () => {
     return (
-        <div className={styles.main}>
+        <div className="container-fluid">
             <div>
-                <h1 className={styles.title}>BIENVENIDOS A HAMBURGUESERIA TORO</h1>
-                <div className={styles.containerPicture}>
-                    <div>
+                <h1 className="my-3 text-center">BIENVENIDOS A HAMBURGUESERIA TORO</h1>
+                <div className="container-fluid">
                         <img src={pic1} alt="image1" className={styles.picture}/>
-                    </div>
-                    <div>
                         <img src={pic2} alt="image2" className={styles.picture}/>
-                    </div>
-                    <div>
                         <img src={pic3} alt="image3" className={styles.picture}/>
-                    </div>
                 </div>
             </div>
         </div>
