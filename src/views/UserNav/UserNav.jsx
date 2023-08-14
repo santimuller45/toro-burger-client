@@ -16,10 +16,11 @@ const UserNav = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
-    const handleLogOut = () => {
+    const handleLogOut = async () => {
         dispatch(userLogOut());
         navigate('/');
     };
+
 
     useEffect(() => {
         const userLocalStorage = localStorage.getItem('user');

@@ -6,7 +6,7 @@ import SearchBox from "../../components/SearchBox/SearchBox.jsx";
 
 const Products = () => {
     return (
-        <div>
+        <>
             <h1 className={styles.title}>Menú</h1>
             <div>
                 <SearchBox/>
@@ -14,7 +14,7 @@ const Products = () => {
             <div>
                 <CardContainer></CardContainer>
             </div>
-        </div>
+        </>
     )
 }
 

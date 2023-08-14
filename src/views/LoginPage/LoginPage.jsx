@@ -35,8 +35,8 @@ const LoginPage = () => {
     };
 
     useEffect(() => {
-        if (user.email) navigate('/');
-    },[])
+        user.email && navigate('/');
+    },[user]);
 
     return (
         <div className="container-fluid">
@@ -63,8 +63,9 @@ const LoginPage = () => {
                                 onChange={handlerInputChange}
                             />
                         </Form.Group>
-                        <br/>
-                        <Button variant="success" type="submit">Login</Button>
+                    </Row>
+                    <Row>
+                        <Button variant="secondary" type="submit">Login</Button>
                     </Row>
                 </Form>
                 <Row className="mb-3">

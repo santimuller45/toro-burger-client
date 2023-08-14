@@ -1,21 +1,21 @@
 import React from "react";
-import styles from "./CardContainer.module.css"
-import Card from "../Card/Card.jsx";
+// import styles from "./CardContainer.module.css"
+import FoodCard from "../FoodCard/FoodCard.jsx";
 import { useSelector } from "react-redux";
 
 //REACT-BOOSTRAP
-import Container from 'react-bootstrap/Container'
-import Button from "react-bootstrap/esm/Button.js";
+// import Container from 'react-bootstrap/Container'
+import CardGroup from 'react-bootstrap/CardGroup';
+// import Button from "react-bootstrap/esm/Button.js";
 
 const CardContainer = () => {
 
     const menuList = useSelector(state => state.menu);
 
     return (
-        <Container fluid >
-            <section className="row">
+        <CardGroup>
                 {menuList?.map(elem => (
-                        <Card
+                        <FoodCard
                             key={elem.id}
                             id={elem.id}
                             name={elem.name}
@@ -25,8 +25,7 @@ const CardContainer = () => {
                         />
                     ))
                 }
-            </section>
-        </Container>
+        </CardGroup>
     )
 };
 

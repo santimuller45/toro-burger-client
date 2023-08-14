@@ -18,13 +18,11 @@ export const userLogin = ({ email , password }) => {
 };
 
 export const userLogOut = () => {
-    return function () {
         localStorage.removeItem('user');
         return {
             type: LOG_OUT_USER,
             payload: {}
-        }  
-    }
+        }
 };
 
 export const allUsers = () => {
