@@ -5,6 +5,8 @@ import { Link , useNavigate } from "react-router-dom";
 import { useSelector , useDispatch } from "react-redux";
 import { userLogin } from "../../redux/actions/actionsUser.js";
 
+import swal from 'sweetalert';
+
 // React-Bootstrap
 import Form from "react-bootstrap/Form";
 import Row from "react-bootstrap/Row";
@@ -22,9 +24,11 @@ const LoginPage = () => {
         password: ""
     });
 
-    const submitLoginHandler = (e) => {
+    const submitLoginHandler = async (e) => {
         e.preventDefault();
-        dispatch(userLogin(formLogin));
+        const status = await dispatch(userLogin(formLogin));
+        if (status.hasOwnProperty('error')) swal("Error", "Incorrect email or password", "error");
+        else swal("Congratulations!", "Login Successfully", "success");
     };
 
     const handlerInputChange = (e) => {
