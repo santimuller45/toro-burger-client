@@ -9,5 +9,6 @@ import LoginPage from "./LoginPage/LoginPage.jsx";
 import RegisterPage from "./RegisterPage/RegisterPage.jsx";
 import Account from "./Account/Account.jsx";
 import Footer from "./Footer/Footer.jsx";
+import Cart from "./Cart/Cart.jsx";
 
-export { LandingPage , NavBar , Products , AboutUs , Contact , UserNav , Detail , LoginPage , RegisterPage , Account , Footer };
+export { LandingPage , NavBar , Products , AboutUs , Contact , UserNav , Detail , LoginPage , RegisterPage , Account , Footer , Cart };

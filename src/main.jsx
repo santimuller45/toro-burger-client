@@ -6,11 +6,14 @@ import { Provider } from "react-redux";
 import store from "./redux/store.js";
 import './main.css'
 import 'bootstrap/dist/css/bootstrap.min.css'
+import { ShopProvider } from './context/Shop/shop.jsx';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <Provider store={store}>
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
+    <ShopProvider>
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
+    </ShopProvider>
   </Provider>
 );

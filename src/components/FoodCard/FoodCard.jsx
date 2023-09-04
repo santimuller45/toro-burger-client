@@ -1,13 +1,21 @@
 import React from "react";
 // import styles from "./Card.module.css";
 import { Link } from "react-router-dom";
+import { useCart } from "../../customHooks/useCart.js";
 
 //REACT-BOOSTRAP
 import Button from "react-bootstrap/esm/Button";
 import Card from 'react-bootstrap/Card';
 import ListGroup from 'react-bootstrap/ListGroup';
 
-const FoodCard = ({ id , name , image , description , price }) => {
+const FoodCard = ( product ) => {
+
+    const { id , name , image , description , price } = product;
+
+    const { addToCart } = useCart();
+
+    // const addToCart = (item) => {console.log(item)}
+
     return (
         <div className="col-8 offset-2 py-1 px-3 col-sm-6 offset-sm-0 py-sm-1 px-sm-3 col-md-6 offset-md-0 py-md-1 px-md-3 col-lg-4 offset-lg-0 py-lg-1 px-lg-3 col-xl-3 offset-xl-0 py-xl-1 px-xl-3 mt-1 mb-3 text-center">
             { name 
@@ -25,7 +33,7 @@ const FoodCard = ({ id , name , image , description , price }) => {
                             <ListGroup.Item><strong>$ {price}</strong></ListGroup.Item>
                         </ListGroup>
                         <Card.Body>
-                            <Button variant="success">Agregar</Button>
+                            <Button variant="success" onClick={() => addToCart(product)}>Agregar</Button>
                         </Card.Body>
                     </Card>
                     // <div className="card">
