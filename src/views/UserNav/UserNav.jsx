@@ -47,7 +47,7 @@ return (
                         <Link to={'/login'} className="col-2 col-sm-1 offset-sm-4 col-md-1 offset-md-5 col-lg-1 offset-lg-10">🙋‍♂️ Log In</Link>
                     }
                 </Col>
-                <Link to={'/shop'} className="col-2 col-sm-1 col-md-1 col-lg-1">🛒 Carrito</Link>
+                <Link to={'/cart'} className="col-2 col-sm-1 col-md-1 col-lg-1">🛒 Carrito</Link>
                 <Link to={'/settings'} className="col-2 col-sm-1 col-md-1 col-lg-1">🛠 Settings</Link>
             </div>
         </>

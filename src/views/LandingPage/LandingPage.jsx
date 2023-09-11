@@ -1,13 +1,13 @@
 import React from "react";
-import styles from "./LandingPage.module.css"
 // import pic1 from "../../assets/pictures/image1.jpeg"
 // import pic2 from "../../assets/pictures/image2.jpeg"
 // import pic3 from "../../assets/pictures/image3.jpeg"
 // import { Link } from "react-router-dom";
 import CardContainer from "../../components/CardContainer/CardContainer.jsx";
 
-
 const LandingPage = () => {
+
+    
     return (
         <div className="container-fluid">
             <div className="container-fluid">
@@ -19,7 +19,7 @@ const LandingPage = () => {
                 </div> */}
                 <div className="container-fluid">
                     <h2 className="my-3 text-center">MENÚ</h2>
-                    <CardContainer/>
+                    <CardContainer />
                 </div>
             </div>
         </div>
