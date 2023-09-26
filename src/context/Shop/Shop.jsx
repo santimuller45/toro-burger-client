@@ -10,7 +10,7 @@ const CART_ACTION_TYPES = {
     CLEAN_CART : 'CLEAN_CART'
 };
 
-const updateCartLocalStorage = state => window.localStorage.setItem('cart', JSON.stringify(state));
+const updateCartLocalStorage = (state) => window.localStorage.setItem('cart', JSON.stringify(state));
 
 const reducer = (state , action) => {
 
@@ -53,7 +53,6 @@ const reducer = (state , action) => {
         };
 
         case CART_ACTION_TYPES.CLEAN_CART: {
-
             updateCartLocalStorage(initialState);
             return initialState 
         }
