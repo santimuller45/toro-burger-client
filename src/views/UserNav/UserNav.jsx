@@ -5,6 +5,8 @@ import { Link , useNavigate } from "react-router-dom";
 import logo from "../../assets/logo/logo-bull.png"
 import { userLogOut , setUser } from "../../redux/actions/actionsUser.js";
 
+// import { useLogin } from "../../customHooks/useLogin.js";
+
 // REACT-BOOTSTRAP
 import Button from "react-bootstrap/Button";
 import Col from "react-bootstrap/Col"
@@ -15,7 +17,8 @@ const UserNav = () => {
     const user = useSelector(state => state.userLogin);
     const dispatch = useDispatch();
     const navigate = useNavigate();
-
+    
+    // const { user } = useLogin();
     const handleLogOut = async () => {
         dispatch(userLogOut());
         navigate('/');

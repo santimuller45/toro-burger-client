@@ -7,13 +7,16 @@ import store from "./redux/store.js";
 import './main.css'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import { ShopProvider } from './context/Shop/shop.jsx';
+// import { LoginProvider } from './context/Login/login.jsx';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <Provider store={store}>
-    <ShopProvider>
-      <BrowserRouter>
-        <App />
-      </BrowserRouter>
-    </ShopProvider>
+    {/* <LoginProvider> */}
+      <ShopProvider>
+        <BrowserRouter>
+          <App />
+        </BrowserRouter>
+      </ShopProvider>
+    {/* </LoginProvider> */}
   </Provider>
 );

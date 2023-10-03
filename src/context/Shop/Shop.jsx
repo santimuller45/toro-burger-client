@@ -12,7 +12,7 @@ const CART_ACTION_TYPES = {
 
 const updateCartLocalStorage = (state) => window.localStorage.setItem('cart', JSON.stringify(state));
 
-const reducer = (state , action) => {
+const reducer = ( state , action ) => {
 
     const { type: actionType , payload: actionPayload } = action;
 
@@ -65,7 +65,7 @@ const reducer = (state , action) => {
 
 export function ShopProvider ({ children }) {
     
-   const [ state , dispatch ] = useReducer(reducer, initialState);
+   const [ state , dispatch ] = useReducer( reducer, initialState);
 
 
    const addToCart = product => dispatch(
