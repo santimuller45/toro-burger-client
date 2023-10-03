@@ -53,34 +53,24 @@ const reducer = ( state , action ) => {
         };
 
         case CART_ACTION_TYPES.CLEAN_CART: {
-            updateCartLocalStorage(initialState);
-            return initialState 
-        }
+            updateCartLocalStorage([]);
+            return []; 
+        };
         
         default: {
-            return state
-        }
-    }
-}
+            return {...state}
+        };
+    };
+};
 
 export function ShopProvider ({ children }) {
     
    const [ state , dispatch ] = useReducer( reducer, initialState);
 
 
-   const addToCart = product => dispatch(
-        {
-            type: CART_ACTION_TYPES.ADD_TO_CART,
-            payload: product
-        }
-    );
+   const addToCart = product => dispatch({ type: CART_ACTION_TYPES.ADD_TO_CART, payload: product });
 
-    const removeFromCart = product => dispatch(
-        {
-            type: CART_ACTION_TYPES.REMOVE_FROM_CART,
-            payload: product
-        }
-    );
+    const removeFromCart = product => dispatch({ type: CART_ACTION_TYPES.REMOVE_FROM_CART, payload: product });
 
     const clearCart = () => dispatch({ type: CART_ACTION_TYPES.CLEAN_CART });
 

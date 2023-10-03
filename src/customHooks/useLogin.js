@@ -1,11 +1,11 @@
-import { useContext } from "react";
-import { LoginContext } from "../context/Login/login.jsx";
+// import { useContext } from "react";
+// import { LoginContext } from "../context/Login/login.jsx";
 
-export const useLogin = () => {
+// export const useLogin = () => {
     
-    const context = useContext(LoginContext);
+//     const context = useContext(LoginContext);
 
-    if (context === undefined) throw new Error('Error login');
+//     if (context === undefined) throw new Error('Error login');
 
-    return context;
-}
+//     return context;
+// }
