@@ -26,6 +26,7 @@ const reducer = ( state , action ) => {
             if (productInCart >= 0) {
                 const newCartState = structuredClone(state);
                 newCartState[productInCart].quantity += 1;
+                newCartState[productInCart].total += newCartState[productInCart].price;
                 updateCartLocalStorage(newCartState);
                 return newCartState;
             }
@@ -35,7 +36,8 @@ const reducer = ( state , action ) => {
                 ...state,
                 {
                     ...actionPayload,
-                    quantity: 1
+                    quantity: 1,
+                    total: actionPayload.price
                 }
             ];
             
@@ -56,6 +58,16 @@ const reducer = ( state , action ) => {
             updateCartLocalStorage([]);
             return []; 
         };
+
+        // case CART_ACTION_TYPES.TOTAL_CART: {
+        //     const total = initialState.map(item => {
+        //         const parcialTotal = 0;
+        //         if (item.quantity > 1) {
+        //             parcialTotal += item.quantity * item.price
+        //         } else parcialTotal += item.price
+        //     });
+        //     return [...initialState , total ];
+        // }
         
         default: {
             return {...state}
