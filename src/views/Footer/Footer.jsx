@@ -1,23 +1,34 @@
 import React from "react";
-import styles from "./Footer.module.css";
+// import styles from "./Footer.module.css";
 // import logo from "../../assets/logo/logo-bull.png";
+
+//REACT-BOOSTRAP
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 
 const Footer = () => {
     return (
-        <>
-            {/* <img src={logo} alt="logo" className={styles.logo}/> */}
-            <div className='row'>
-                <article className='col-xs-12 col-sm-6 col-md-3 col-lg-3'>
-                    <h5 className='p-3 text-center'>TORO</h5>
-                </article>
-                <article className='col-xs-12 col-sm-6 col-md-3 col-lg-3'>
-                    <h5 className='p-4 text-center'>Buenos Aires - 9 de Julio</h5>
-                </article>
-                <article className='col-xs-12 col-sm-6 col-md-3 col-lg-3'>
-                    <h5 className='p-4 text-center'>hamburgueseria@toro.com.ar</h5>
-                </article>
-            </div>  
-        </>
+        <footer className="bg-dark text-white">
+            <Container>
+                {/* <img src={logo} alt="logo" className={styles.logo}/> */}
+                <Row>
+                    <Col md={6}>
+                        <h5>Buenos Aires - 9 de Julio</h5>
+                    </Col>
+                    <Col md={6}>
+                        <h5>hamburgueseria@toro.com.ar</h5>
+                        {/* <h6>Enlaces Rápidos</h6>
+                            <ul>
+                                <li><a href="/">Inicio</a></li>
+                                <li><a href="/acerca-de">Acerca de Nosotros</a></li>
+                                <li><a href="/servicios">Servicios</a></li>
+                                <li><a href="/contacto">Contacto</a></li>
+                            </ul> */}
+                    </Col>
+                </Row>
+            </Container>
+        </footer>
     )
 };
 

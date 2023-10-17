@@ -1,7 +1,14 @@
-.picture {
-    height: 25rem;
-    width: 35rem;
-    border: 2px solid #ccc;
-    border-radius: 5px;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+.text {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-size: cover;
+    background-position: center;
+    margin-top: 1em;
+}
+
+.section {
+    position: absolute;
+    right: 5%;
+    top: 50%;
 }
