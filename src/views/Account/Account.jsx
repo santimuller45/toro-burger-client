@@ -10,6 +10,8 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
 
+// FALTA FUNCIONALIDAD DE CAMBIAR DATOS DE LA CUENTA DEL USUARIO
+
 const Account = () => {
 
     const navigate = useNavigate();

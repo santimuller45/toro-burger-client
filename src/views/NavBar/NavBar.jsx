@@ -13,7 +13,7 @@ const NavBar = () => {
              <Container>
                 <Nav className="">
                     <Link to={'/'} className={styles.item}>Inicio</Link>
-                    <Link to={'/products'} className={styles.item}>Menú</Link>
+                    <Link to={'/menu'} className={styles.item}>Menú</Link>
                     <Link to={'/aboutus'} className={styles.item}>Nosotros</Link>
                     <Link to={'/contact'} className={styles.item}>Contacto</Link>
                 </Nav>

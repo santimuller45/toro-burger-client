@@ -32,15 +32,7 @@ const Detail = () => {
                         <h1 className={styles.cardName}>{productDetail.name}</h1>
                         <h6>{productDetail.description}</h6>
                         <h3>${productDetail.price}</h3>
-                    </div>   
-                // <Card
-                //     key={productDetail.id}
-                //     id={productDetail.id}
-                //     name={productDetail.name}
-                //     image={productDetail.image}
-                //     description={productDetail.description}
-                //     price={productDetail.price}
-                // />
+                    </div>
                 : null
             }
         </div>

@@ -5,7 +5,7 @@ import { Route, Routes } from 'react-router-dom'
 import { foodMenu } from "./redux/actions/actionsFood.js";
 import axios from "axios";
 // import './App.css'
-import { LandingPage , NavBar , Products , AboutUs, Contact , UserNav , Detail , LoginPage , RegisterPage , Account , Footer , Cart } from './views/index.js'
+import { LandingPage , NavBar , Products , AboutUs, Contact , UserNav , Detail , LoginPage , RegisterPage , Account , Footer , Cart , CheckoutCart } from './views/index.js'
 
 axios.defaults.baseURL = "http://localhost:3001";
 
@@ -27,7 +27,7 @@ function App() {
       </header>
       <Routes>
         <Route path='/' element={<LandingPage />}></Route>
-        <Route path='/products' element={<Products />}></Route>
+        <Route path='/menu' element={<Products />}></Route>
         <Route path='/aboutus' element={<AboutUs />}></Route>
         <Route path='/contact' element={<Contact />}></Route>
         <Route path='/detail/:idProduct' element={<Detail/>}></Route>
@@ -35,6 +35,7 @@ function App() {
         <Route path='/register' element={<RegisterPage/>}></Route>
         <Route path='/account' element={<Account/>}/>
         <Route path='/cart' element={<Cart/>}></Route>
+        <Route path='/cart/checkout' element={<CheckoutCart/>}></Route>
       </Routes>
       <footer className="container-fluid">
         <Footer/>

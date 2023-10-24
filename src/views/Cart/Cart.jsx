@@ -1,5 +1,6 @@
 import React from "react";
 import { useState , useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { useCart } from "../../customHooks/useCart.js";
 
 //REACT-BOOSTRAP
@@ -9,6 +10,7 @@ import Table from 'react-bootstrap/Table';
 
 function Cart () {
 
+    const navigate = useNavigate();
     const { cart , addToCart , removeFromCart , clearCart } = useCart();
     const [ totalCart , setTotalCart ] = useState(0);
 
@@ -65,7 +67,7 @@ function Cart () {
                 </tbody>
             </Table>
             <div style={{display:"flex", justifyContent:"center", margin:"10px"}}>
-                <Button variant="success" onClick={() => {}}>Finalizar Pedido</Button>
+                <Button variant="success" onClick={() => navigate('/cart/checkout')}>Finalizar Pedido</Button>
                 <Button variant="danger" onClick={() => clearCart()}>Limpiar Carrito</Button>
             </div>
         </div>
