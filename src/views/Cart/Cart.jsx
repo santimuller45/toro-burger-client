@@ -21,8 +21,6 @@ function Cart () {
         : setTotalCart(0);
     };
 
-    // array1.reduce((accumulator, currentValue) => accumulator + currentValue, initialValue);
-
     useEffect(() => {
         sumaTotal();
     },[cart])

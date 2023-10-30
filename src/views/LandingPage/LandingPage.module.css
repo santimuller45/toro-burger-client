@@ -1,5 +1,6 @@
 .text {
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     background-size: cover;
@@ -9,7 +10,6 @@
 
 .hero {
     display: flex;
-    flex-direction: row;
     justify-content: center;
     align-items: center;
     gap: 1rem;

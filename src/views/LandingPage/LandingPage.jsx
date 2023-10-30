@@ -11,11 +11,12 @@ const LandingPage = () => {
 
     return (
         <div className="container-fluid">
-            <div className={style.text}>
-                <h1 className="col-7 bg-black opacity-75 rounded-pill text-white text-center p-1"><strong>Bienvenidos a TORO</strong></h1>
-            </div>
+            <header className={style.text}>
+                {/* <h1 className="col-7 bg-black opacity-75 rounded-pill text-white text-center p-1"><strong>Bienvenidos a</strong></h1> */}
+                <h1 className="col-7 bg-black opacity-75 rounded-pill text-white text-center p-1"><strong>TORO BURGER & BEER</strong></h1>
+            </header>
             <div className={style.hero}>
-                <Carousel>
+                <Carousel className={style.hero}>
                     <Carousel.Item>
                         <img
                             className="bg-black text-white text-center p-2"
@@ -39,13 +40,14 @@ const LandingPage = () => {
                         </Carousel.Caption>
                     </Carousel.Item>
                 </Carousel>
-                <section>
-                    <h5><strong>HOLA! SEAN BIENVENIDOS A LA PÁGINA DE TORO</strong></h5>
-                    <h5><strong>LES OFRECEMOS LA MEJOR CARTA PARA SU PLACER</strong></h5>
-                    <h5><strong>SOMOS LOS MEJORES EN CALIDAD Y PRECIO</strong></h5>
-                    <h5><strong>DE LA LOCALIDAD DE 9 DE JULIO</strong></h5>
-                </section>
             </div>
+            <section className={style.text}>
+                {/* <strong><p>HOLA! SEAN BIENVENIDOS A LA PÁGINA DE TORO, LES OFRECEMOS LA MEJOR CARTA PARA SU PLACER , SOMOS LOS MEJORES EN CALIDAD Y PRECIO DE LA LOCALIDAD DE 9 DE JULIO</p></strong> */}
+                <h3><strong>HOLA! SEAN BIENVENIDOS A LA PÁGINA DE TORO</strong></h3>
+                <h3><strong>LES OFRECEMOS LA MEJOR CARTA PARA SU PLACER</strong></h3>
+                <h3><strong>SOMOS LOS MEJORES EN CALIDAD Y PRECIO</strong></h3>
+                <h3><strong>DE LA LOCALIDAD DE 9 DE JULIO</strong></h3>
+            </section>
             <div className={style.text}>
                 <h1 className="col-7 bg-black opacity-75 rounded-pill text-white text-center p-1">
                     <strong>Quieres hacernos tu pedido?</strong>

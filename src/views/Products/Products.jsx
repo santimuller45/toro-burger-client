@@ -7,13 +7,11 @@ import SearchBox from "../../components/SearchBox/SearchBox.jsx";
 const Products = () => {
     return (
         <>
-            <h1 className={styles.title}>Menú</h1>
-            <div>
-                <SearchBox/>
+            <div className={styles.title}>
+                <h1 className="col-7 bg-black opacity-75 rounded-pill text-white text-center p-1"><strong>MENÚ</strong></h1>
             </div>
-            <div>
-                <CardContainer></CardContainer>
-            </div>
+            <SearchBox/>
+            <CardContainer></CardContainer>
         </>
     )
 }

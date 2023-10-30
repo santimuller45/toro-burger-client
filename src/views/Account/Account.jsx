@@ -1,4 +1,5 @@
 import React from "react";
+import style from "./Account.module.css"
 import axios from "axios";
 import { useSelector } from "react-redux";
 import { useState , useEffect } from "react";
@@ -35,10 +36,12 @@ const Account = () => {
     return (
         <div className="container-fluid">
                 <Form>
-                    <h1>Account Settings</h1>
+                    <div className={style.title}>
+                        <h1 className="col-7 bg-black opacity-75 rounded-pill text-white text-center p-1">Account Settings</h1>
+                    </div>
                     <Row className="mb-3">
                         <Form.Group as={Col} controlId="formEmail">
-                            <Form.Label>Email</Form.Label>
+                            <Form.Label><strong>Email</strong></Form.Label>
                             <Form.Control
                                 type="email"
                                 placeholder="Enter email"
@@ -48,7 +51,7 @@ const Account = () => {
                             />
                         </Form.Group>
                         <Form.Group as={Col} controlId="formName">
-                            <Form.Label>First Name</Form.Label>
+                            <Form.Label><strong>Nombre</strong></Form.Label>
                             <Form.Control
                                 type="firstname"
                                 placeholder="First Name"
@@ -60,7 +63,7 @@ const Account = () => {
                     </Row>
                     <Row className="mb-3">
                         <Form.Group as={Col} controlId="formLastName">
-                            <Form.Label>Last Name</Form.Label>
+                            <Form.Label><strong>Apellido</strong></Form.Label>
                             <Form.Control
                                 type="lastname"
                                 placeholder="Last Name"
@@ -70,7 +73,7 @@ const Account = () => {
                             />
                         </Form.Group>
                         <Form.Group as={Col} controlId="formAddress">
-                            <Form.Label>Address</Form.Label>
+                            <Form.Label><strong>Dirección</strong></Form.Label>
                             <Form.Control
                                 type="address"
                                 placeholder="address"
@@ -82,7 +85,7 @@ const Account = () => {
                     </Row>
                     <Row className="mb-3">
                         <Form.Group as={Col} controlId="formCp">
-                            <Form.Label>CP</Form.Label>
+                            <Form.Label><strong>Código Postal</strong></Form.Label>
                             <Form.Control
                                 type="cp"
                                 placeholder="cp"
@@ -92,7 +95,7 @@ const Account = () => {
                             />
                         </Form.Group>
                         <Form.Group as={Col} controlId="formCity">
-                            <Form.Label>City</Form.Label>
+                            <Form.Label><strong>Ciudad</strong></Form.Label>
                             <Form.Control
                                 type="city"
                                 placeholder="city"
@@ -104,7 +107,7 @@ const Account = () => {
                     </Row>
                     <Row className="mb-3">
                         <Form.Group as={Col} controlId="formCountry">
-                            <Form.Label>Country</Form.Label>
+                            <Form.Label><strong>País</strong></Form.Label>
                             <Form.Control
                                 type="country"
                                 placeholder="country"
@@ -114,7 +117,7 @@ const Account = () => {
                             />
                         </Form.Group>
                         <Form.Group as={Col} controlId="formPhone">
-                            <Form.Label>Phone</Form.Label>
+                            <Form.Label><strong>Teléfono</strong></Form.Label>
                             <Form.Control
                                 type="phone"
                                 placeholder="phone"

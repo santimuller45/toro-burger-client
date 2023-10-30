@@ -3,6 +3,7 @@ import style from "./SearchBox.module.css"
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { getFoodByName } from "../../redux/actions/actionsFood.js";
+import { foodMenu } from "../../redux/actions/actionsFood.js";
 
 //REACT-BOOSTRAP
 
@@ -14,6 +15,7 @@ const SearchBox = () => {
 
     const [ food , setFood ] = useState('');
     const dispatch = useDispatch();
+
     const foodHandler = (e) => {
         e.preventDefault();
         setFood(e.target.value);
@@ -21,14 +23,13 @@ const SearchBox = () => {
     const searchHandler = (e) => {
         e.preventDefault();
         if (!food) window.alert('Agregue una comida a buscar...');
-        else {
-            dispatch(getFoodByName(food));
-            console.log(food)
-        }
+        else dispatch(getFoodByName(food));
     };
 
+    const resetHandler = () => dispatch(foodMenu());
+
     return (
-        <Form onSubmit={searchHandler} className='col-6 mx-auto mt-3'>
+        <Form onSubmit={searchHandler} onReset={resetHandler} className='col-6 mx-auto mt-3'>
              <Stack direction="horizontal" >
                 <Form.Control 
                     className="me-auto"

@@ -3,11 +3,16 @@ import styles from "./Detail.module.css";
 import axios from "axios";
 import { useState , useEffect } from "react";
 import { useParams } from "react-router-dom";
+import { useCart } from "../../customHooks/useCart.js";
+
+// REACT-BOOSTRAP
+import Button from "react-bootstrap/esm/Button";
 
 const Detail = () => {
 
     const { idProduct } = useParams();
     const [ productDetail , setProductDetail ] = useState({});
+    const { addToCart } = useCart();
 
     const fooDetail = async () => {
         try {
@@ -20,7 +25,7 @@ const Detail = () => {
 
     useEffect(() => {
         fooDetail();
-    },[])
+    },[productDetail])
 
 
     return (
@@ -29,9 +34,10 @@ const Detail = () => {
                 ?
                     <div className={styles.cardContainer}>
                         <img src={productDetail.image} alt={productDetail.id} className={styles.cardImage}/>
-                        <h1 className={styles.cardName}>{productDetail.name}</h1>
+                        <h1 className={styles.cardName}><strong>{productDetail.name}</strong></h1>
                         <h6>{productDetail.description}</h6>
-                        <h3>${productDetail.price}</h3>
+                        <h3><strong>${productDetail.price}</strong></h3>
+                        <Button variant="success" onClick={() => addToCart(productDetail)}>Agregar</Button>
                     </div>
                 : null
             }
