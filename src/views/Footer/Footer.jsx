@@ -14,17 +14,16 @@ const Footer = () => {
                 {/* <img src={logo} alt="logo" className={styles.logo}/> */}
                 <Row>
                     <Col md={6}>
-                        <h5>Buenos Aires - 9 de Julio</h5>
+                        <h5><strong>Buenos Aires - 9 de Julio</strong></h5>
                     </Col>
                     <Col md={6}>
-                        <h5>hamburgueseria@toro.com.ar</h5>
-                        {/* <h6>Enlaces Rápidos</h6>
+                        <h5> <strong>hamburgueseria@toro.com.ar</strong></h5>
+                        <h6>Enlaces Rápidos</h6>
                             <ul>
-                                <li><a href="/">Inicio</a></li>
-                                <li><a href="/acerca-de">Acerca de Nosotros</a></li>
-                                <li><a href="/servicios">Servicios</a></li>
-                                <li><a href="/contacto">Contacto</a></li>
-                            </ul> */}
+                                <li><a href="/"><strong>Inicio</strong></a></li>
+                                <li><a href="/aboutus"><strong>Acerca de Nosotros</strong></a></li>
+                                <li><a href="/contact"><strong>Contacto</strong></a></li>
+                            </ul>
                     </Col>
                 </Row>
             </Container>

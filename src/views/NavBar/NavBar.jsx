@@ -11,7 +11,7 @@ const NavBar = () => {
     return (
         <Navbar className={styles.nav}>
              <Container>
-                <Nav className="">
+                <Nav className={styles.nav}>
                     <Link to={'/'} className={styles.item}>Inicio</Link>
                     <Link to={'/menu'} className={styles.item}>Menú</Link>
                     <Link to={'/aboutus'} className={styles.item}>Nosotros</Link>

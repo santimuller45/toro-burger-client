@@ -8,6 +8,9 @@ import { useCart } from "../../customHooks/useCart.js";
 // REACT-BOOSTRAP
 import Button from "react-bootstrap/esm/Button";
 
+// ALERTAS
+import swal from 'sweetalert';
+
 const Detail = () => {
 
     const { idProduct } = useParams();
@@ -27,6 +30,11 @@ const Detail = () => {
         fooDetail();
     },[productDetail])
 
+    const addCartAndSuccessAlert = (product) => {
+        addToCart(product);
+        swal("Agregado al carrito exitosamente!", product.name, "success");
+    }
+
 
     return (
         <div className={styles.container}>
@@ -37,7 +45,7 @@ const Detail = () => {
                         <h1 className={styles.cardName}><strong>{productDetail.name}</strong></h1>
                         <h6>{productDetail.description}</h6>
                         <h3><strong>${productDetail.price}</strong></h3>
-                        <Button variant="success" onClick={() => addToCart(productDetail)}>Agregar</Button>
+                        <Button variant="success" onClick={() => addCartAndSuccessAlert(productDetail)}>Agregar</Button>
                     </div>
                 : null
             }

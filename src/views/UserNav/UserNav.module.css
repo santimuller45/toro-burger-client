@@ -1,11 +1,37 @@
 .nav {
     display: flex;
+    flex-direction: row;
     justify-content: flex-end;
     align-items: flex-end;
-    gap: 2.5rem;
-    padding: 2rem;
+    gap: 1rem;
+    flex-wrap: wrap;
+    background-color: #868686;
+    font-weight: bolder;
+    width: 100%;
+    /* color:#edab5f !important; */
 }
 .logo{
-    width: 4%;
-    height: 4%;
+    align-self: flex-start;
+    width: 7%;
+    height: 7%;
+}
+.item {
+    background-color: transparent;
+    color: #414141;
+    font-weight: bolder;
+    cursor: pointer;
+    border: none;
+    font-size: 1rem;
+    text-decoration: none;
+}
+.nav .item:hover {
+    background-color: #646362;
+    color: #ffffff;
+    border: none;
+    border-radius: 0.5rem;
+}
+.title {
+    align-self: center;
+    opacity: 75;
+    color: white;
 }
