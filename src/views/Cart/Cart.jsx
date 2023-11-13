@@ -1,12 +1,15 @@
 import React from "react";
 import { useState , useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+
+//CUSTOM HOOKS
 import { useCart } from "../../customHooks/useCart.js";
+//>
 
 //REACT-BOOSTRAP
 import Button from "react-bootstrap/esm/Button";
 import Table from 'react-bootstrap/Table';
-
+//>
 
 function Cart () {
 

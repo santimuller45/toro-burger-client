@@ -1,15 +1,17 @@
 import React from "react";
+import style from "./CheckoutCart.module.css";
 import { useEffect , useState } from "react";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+
+//CUSTOM HOOKS
 import { useCart } from "../../customHooks/useCart";
-import style from "./CheckoutCart.module.css";
+//>
 
 // REACT-BOOSTRAP
 import Table from 'react-bootstrap/Table';
 import Button from "react-bootstrap/esm/Button";
-
-
+//>
 
 const CheckoutCart = () => {
 

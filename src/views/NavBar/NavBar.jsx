@@ -9,7 +9,8 @@ import Navbar from 'react-bootstrap/Navbar';
 
 const NavBar = () => {
     return (
-        <Navbar className={styles.nav}>
+        <>
+            <Navbar className={styles.nav}>
              <Container>
                 <Nav className={styles.nav}>
                     <Link to={'/'} className={styles.item}>Inicio</Link>
@@ -18,8 +19,8 @@ const NavBar = () => {
                     <Link to={'/contact'} className={styles.item}>Contacto</Link>
                 </Nav>
              </Container>
-        </Navbar>
-    )
-};
+            </Navbar>
+        </>
+)};
 
 export default NavBar;

@@ -7,10 +7,3 @@
     background-position: center;
     margin-top: 1em;
 }
-
-.hero {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 1rem;
-}

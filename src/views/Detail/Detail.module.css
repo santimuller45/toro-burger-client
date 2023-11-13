@@ -2,13 +2,14 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    padding-top: 1%;
+    padding-top: 3%;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
 }
 .cardImage {
     display: block;
-    margin: 0 auto;
-    width: 40rem;
-    height: 30rem;
+    width: 100%;
     border: 5px solid black;
 }
 .cardName {

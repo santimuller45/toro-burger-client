@@ -5,7 +5,24 @@ import { Route, Routes } from 'react-router-dom'
 import { foodMenu } from "./redux/actions/actionsFood.js";
 import axios from "axios";
 // import './App.css'
-import { LandingPage , NavBar , Products , AboutUs, Contact , UserNav , Detail , LoginPage , RegisterPage , Account , Footer , Cart , CheckoutCart } from './views/index.js'
+
+// COMPONENTES
+import { 
+  LandingPage, 
+  NavBar, 
+  Products, 
+  AboutUs, 
+  Contact, 
+  UserNav, 
+  Detail, 
+  LoginPage, 
+  RegisterPage, 
+  Account, 
+  Footer, 
+  Cart, 
+  CheckoutCart
+} from './views/index.js';
+//>
 
 axios.defaults.baseURL = "http://localhost:3001";
 
@@ -15,7 +32,7 @@ function App() {
 
   useEffect(() => {
     dispatch(foodMenu())
-  },[dispatch])
+  },[dispatch]);
 
   return (
     <div className="App">
@@ -39,7 +56,7 @@ function App() {
         <Footer/>
       </footer>
     </div>
-  )
-}
+  );
+};
 
-export default App
+export default App;

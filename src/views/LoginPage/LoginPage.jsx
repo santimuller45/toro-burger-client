@@ -4,22 +4,23 @@ import { useState , useEffect } from "react";
 import { Link , useNavigate } from "react-router-dom";
 import { useSelector , useDispatch } from "react-redux";
 import { userLogin } from "../../redux/actions/actionsUser.js";
-// import { useLogin } from "../../customHooks/useLogin.js";
 
+//ALERTAS
 import swal from 'sweetalert';
+//>
 
 // React-Bootstrap
 import Form from "react-bootstrap/Form";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
+//>
 
 const LoginPage = () => {
 
     const navigate = useNavigate();
     const dispatch = useDispatch();
     const user = useSelector(state => state.userLogin)
-    // const { user , loginUser } = useLogin();
 
     const [formLogin, setFormLogin] = useState({
         email: "",
@@ -28,8 +29,6 @@ const LoginPage = () => {
 
     const submitLoginHandler = async (e) => {
         e.preventDefault();
-        // await loginUser(formLogin)
-        // console.log(user)
         const statusUser = await dispatch(userLogin(formLogin));
         if (statusUser.hasOwnProperty('error')) swal("Error", "Incorrect email or password", "error");
         else swal("Congratulations!", "Login Successfully", "success");

@@ -3,17 +3,11 @@
     flex-direction: row;
     justify-content: center;
     align-items: center;
+    flex-wrap: wrap;
+    gap: 1.5rem;
     background-color: #cecece;
-    color:#edab5f !important;
     font-weight: bolder;
     width: 100%;
-    gap: 3rem;
-}
-.nav .item:hover {
-    background-color: #646362;
-    color: #ffffff;
-    border: none;
-    border-radius: 4px;
 }
 .item {
     background-color: transparent;
@@ -23,4 +17,10 @@
     border: none;
     font-size: 1.3rem;
     text-decoration: none;
+}
+.nav .item:hover {
+    background-color: #646362;
+    color: #ffffff;
+    border: none;
+    border-radius: 1rem;
 }

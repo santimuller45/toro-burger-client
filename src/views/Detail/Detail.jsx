@@ -3,13 +3,18 @@ import styles from "./Detail.module.css";
 import axios from "axios";
 import { useState , useEffect } from "react";
 import { useParams } from "react-router-dom";
+
+//CUSTOM HOOKS
 import { useCart } from "../../customHooks/useCart.js";
+//>
 
 // REACT-BOOSTRAP
 import Button from "react-bootstrap/esm/Button";
+//>
 
 // ALERTAS
 import swal from 'sweetalert';
+//>
 
 const Detail = () => {
 
@@ -27,14 +32,13 @@ const Detail = () => {
     };
 
     useEffect(() => {
-        fooDetail();
-    },[productDetail])
+        productDetail.id ? null : fooDetail();
+    },[productDetail]);
 
     const addCartAndSuccessAlert = (product) => {
         addToCart(product);
         swal("Agregado al carrito exitosamente!", product.name, "success");
     }
-
 
     return (
         <div className={styles.container}>
