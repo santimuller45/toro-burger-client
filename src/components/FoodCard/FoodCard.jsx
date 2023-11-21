@@ -30,10 +30,10 @@ const FoodCard = ( product ) => {
     }
 
     return (
-        <div className={styles.card}>
+        <div>
             { name 
                 ?
-                (<Card>
+                (<Card className={styles.card}>
                     <Link to={`/detail/${id}`}>
                         <Card.Img variant="top" src={image}/>
                     </Link>
