@@ -20,7 +20,8 @@ import {
   Account, 
   Footer, 
   Cart, 
-  CheckoutCart
+  CheckoutCart,
+  SettingsAdmin
 } from './views/index.js';
 //>
 
@@ -51,6 +52,7 @@ function App() {
         <Route path='/account' element={<Account/>}/>
         <Route path='/cart' element={<Cart/>}></Route>
         <Route path='/cart/checkout' element={<CheckoutCart/>}></Route>
+        <Route path='/settings' element={<SettingsAdmin/>}></Route>
       </Routes>
       <footer>
         <Footer/>

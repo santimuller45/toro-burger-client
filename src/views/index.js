@@ -11,5 +11,6 @@ import Account from "./Account/Account.jsx";
 import Footer from "./Footer/Footer.jsx";
 import Cart from "./Cart/Cart.jsx";
 import CheckoutCart from "./CheckoutCart/CheckoutCart.jsx";
+import SettingsAdmin from "./SettingsAdmin/SettingsAdmin.jsx";
 
-export { LandingPage , NavBar , Products , AboutUs , Contact , UserNav , Detail , LoginPage , RegisterPage , Account , Footer , Cart , CheckoutCart };
+export {LandingPage ,NavBar ,Products ,AboutUs ,Contact ,UserNav ,Detail ,LoginPage ,RegisterPage ,Account ,Footer ,Cart ,CheckoutCart ,SettingsAdmin };

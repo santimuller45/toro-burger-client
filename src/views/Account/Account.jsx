@@ -1,6 +1,6 @@
 import React from "react";
 import style from "./Account.module.css"
-import axios from "axios";
+// import axios from "axios";
 import { useSelector } from "react-redux";
 import { useState , useEffect } from "react";
 import { useNavigate } from "react-router-dom";
@@ -9,7 +9,7 @@ import { useNavigate } from "react-router-dom";
 import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import Button from 'react-bootstrap/Button';
+// import Button from 'react-bootstrap/Button';
 
 // FALTA FUNCIONALIDAD DE CAMBIAR DATOS DE LA CUENTA DEL USUARIO
 
@@ -29,13 +29,17 @@ const Account = () => {
         phone: user.phone
     });
 
+    const changeHandlerSubmit = () => {};
+
+    const handlerSubmit = () => {};
+
     useEffect(() => {
         !user.email && navigate('/');
     }, [user]);
 
     return (
         <div className="container-fluid">
-                <Form>
+                <Form onSubmit={handlerSubmit}>
                     <div className={style.title}>
                         <h1 className="col-7 bg-black opacity-75 rounded-pill text-white text-center p-1">Account Settings</h1>
                     </div>
@@ -45,19 +49,19 @@ const Account = () => {
                             <Form.Control
                                 type="email"
                                 placeholder="Enter email"
-                                id="email"
-                                name="email"
                                 value={userDetail.email}
+                                disabled
+                                onChange={changeHandlerSubmit}
                             />
                         </Form.Group>
-                        <Form.Group as={Col} controlId="formName">
+                        <Form.Group as={Col} controlId="formFirstName">
                             <Form.Label><strong>Nombre</strong></Form.Label>
                             <Form.Control
-                                type="firstname"
+                                type="text"
                                 placeholder="First Name"
-                                id="firstname"
-                                name="firstname"
                                 value={userDetail.firstname}
+                                disabled
+                                onChange={changeHandlerSubmit}
                             />
                         </Form.Group>
                     </Row>
@@ -65,21 +69,21 @@ const Account = () => {
                         <Form.Group as={Col} controlId="formLastName">
                             <Form.Label><strong>Apellido</strong></Form.Label>
                             <Form.Control
-                                type="lastname"
+                                type="text"
                                 placeholder="Last Name"
-                                id="lastname"
-                                name="lastname"
                                 value={userDetail.lastname}
+                                disabled
+                                onChange={changeHandlerSubmit}
                             />
                         </Form.Group>
                         <Form.Group as={Col} controlId="formAddress">
                             <Form.Label><strong>Dirección</strong></Form.Label>
                             <Form.Control
-                                type="address"
+                                type="text"
                                 placeholder="address"
-                                id="address"
-                                name="address"
                                 value={userDetail.address}
+                                disabled
+                                onChange={changeHandlerSubmit}
                             />
                         </Form.Group>
                     </Row>
@@ -87,21 +91,21 @@ const Account = () => {
                         <Form.Group as={Col} controlId="formCp">
                             <Form.Label><strong>Código Postal</strong></Form.Label>
                             <Form.Control
-                                type="cp"
+                                type="number"
                                 placeholder="cp"
-                                id="cp"
-                                name="cp"
                                 value={userDetail.cp}
+                                disabled
+                                onChange={changeHandlerSubmit}
                             />
                         </Form.Group>
                         <Form.Group as={Col} controlId="formCity">
                             <Form.Label><strong>Ciudad</strong></Form.Label>
                             <Form.Control
-                                type="city"
+                                type="text"
                                 placeholder="city"
-                                id="city"
-                                name="city"
                                 value={userDetail.city}
+                                disabled
+                                onChange={changeHandlerSubmit}
                             />
                         </Form.Group>
                     </Row>
@@ -109,21 +113,21 @@ const Account = () => {
                         <Form.Group as={Col} controlId="formCountry">
                             <Form.Label><strong>País</strong></Form.Label>
                             <Form.Control
-                                type="country"
+                                type="text"
                                 placeholder="country"
-                                id="country"
-                                name="country"
                                 value={userDetail.country}
+                                disabled
+                                onChange={changeHandlerSubmit}
                             />
                         </Form.Group>
                         <Form.Group as={Col} controlId="formPhone">
                             <Form.Label><strong>Teléfono</strong></Form.Label>
                             <Form.Control
-                                type="phone"
+                                type="number"
                                 placeholder="phone"
-                                id="phone"
-                                name="phone"
                                 value={userDetail.phone}
+                                disabled
+                                onChange={changeHandlerSubmit}
                             />
                         </Form.Group>
                     </Row>

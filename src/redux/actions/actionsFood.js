@@ -28,4 +28,4 @@ export const getFoodByName = ( name ) => {
           return { error: error.message };
         };
     }
-  };
+};
