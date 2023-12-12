@@ -31,6 +31,10 @@ const UserNav = () => {
         navigate('/');
     };
 
+    const pathToAccount = () => navigate('/account');
+    const pathToShop = () => navigate('/cart');
+    const pathToSettingsFoods = () => navigate('/settings/foods');
+
 
     useEffect(() => {
         const userLocalStorage = localStorage.getItem('user');
@@ -41,38 +45,41 @@ const UserNav = () => {
     },[])
 
 return (
-    <Navbar className={styles.nav}>
-        <img src={logo} alt="logo" className={styles.logo}/>
-        <h1 className={styles.title}><strong>TORO BURGER & BEER</strong></h1>
-        <Container>
-            <Nav className={styles.nav}>
-                {user.email 
-                    ? 
-                    (<div className={styles.item}>
-                        <Link to={'/account'} className={styles.item}>🙋‍♂️ {user.firstname}</Link>
-                        <Button variant="danger" size="sm" onClick={handleLogOut}>Log out</Button>
-                    </div>)
-                    :
-                    (<Link to={'/login'} className={styles.item}>🙋‍♂️ Log In</Link>)
-                }
-                <Link to={'/cart'} className={styles.item}>🛒 Carrito</Link>
-                {user.adminType
-                    ?
-                    // (<NavDropdown title="🛠 Settings" id="basic-nav-dropdown" className={styles.item}>
-                    //     <NavDropdown.Item>
-                    //         <Link to={'/settings'} className={styles.item}>Foods</Link>
-                    //     </NavDropdown.Item>
-                    //     <NavDropdown.Divider />
-                    //     <NavDropdown.Item href="#action/3.4">Users</NavDropdown.Item>
-                    //     <NavDropdown.Divider />
-                    //     <NavDropdown.Item href="#action/3.4">Payments</NavDropdown.Item>
-                    // </NavDropdown>)
-                    <Link to={'/settings'} className={styles.item}>🛠 Settings</Link>
-                    : null
-                }
-            </Nav>
-        </Container>
-    </Navbar>
+  <Navbar expand="lg" className="bg-body-tertiary">
+      <Container>
+        <Navbar.Brand><img src={logo} alt="logo" className={styles.logo}/></Navbar.Brand>
+        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <Navbar.Collapse id="basic-navbar-nav">
+          <Nav className="me-auto">
+            <strong>
+              <NavDropdown title="🛒Carrito" id="shop-nav-dropdown">
+                <NavDropdown.Item onClick={pathToShop}><strong>Ver Carrito</strong></NavDropdown.Item>
+              </NavDropdown>
+            </strong>
+            {user.email
+                ?   (<strong><NavDropdown title={`🙋‍♂️${user.firstname}`} id="account-nav-dropdown">
+                        <NavDropdown.Item onClick={pathToAccount}><strong>Mi Cuenta</strong></NavDropdown.Item>
+                        <NavDropdown.Item onClick={handleLogOut}><strong>Log out</strong></NavDropdown.Item>
+                    </NavDropdown></strong>)
+                :  (<Link to={'/login'} className={styles.item}><strong>🙋‍♂️ Log In</strong></Link>)
+            }
+            <strong>
+              <NavDropdown title="🛠 Settings" id="settings-nav-dropdown">
+                <NavDropdown.Item onClick={pathToSettingsFoods}>Modificar Menú</NavDropdown.Item>
+                <NavDropdown.Item href="#action/3.2">
+                  Another action
+                </NavDropdown.Item>
+                <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
+                <NavDropdown.Divider />
+                <NavDropdown.Item href="#action/3.4">
+                  Separated link
+                </NavDropdown.Item>
+              </NavDropdown>
+            </strong>
+          </Nav>
+        </Navbar.Collapse>
+      </Container>
+  </Navbar>
 )};
 
 export default UserNav;

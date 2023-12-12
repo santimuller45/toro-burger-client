@@ -12,5 +12,22 @@ import Footer from "./Footer/Footer.jsx";
 import Cart from "./Cart/Cart.jsx";
 import CheckoutCart from "./CheckoutCart/CheckoutCart.jsx";
 import SettingsAdmin from "./SettingsAdmin/SettingsAdmin.jsx";
+import AdminFood from "./SettingsAdmin/AdminFood/AdminFood.jsx";
 
-export {LandingPage ,NavBar ,Products ,AboutUs ,Contact ,UserNav ,Detail ,LoginPage ,RegisterPage ,Account ,Footer ,Cart ,CheckoutCart ,SettingsAdmin };
+export { 
+    LandingPage,
+    NavBar,
+    Products,
+    AboutUs,
+    Contact,
+    UserNav,
+    Detail,
+    LoginPage,
+    RegisterPage,
+    Account,
+    Footer,
+    Cart,
+    CheckoutCart,
+    SettingsAdmin,
+    AdminFood 
+};
