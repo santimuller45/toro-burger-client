@@ -21,6 +21,7 @@ function Cart () {
         cart.length > 0 
         ?
         setTotalCart(cart.reduce(( acc ,item ) => acc + item.total ,0))
+        // setTotalCart(totalAmountCart)
         : setTotalCart(0);
     };
 

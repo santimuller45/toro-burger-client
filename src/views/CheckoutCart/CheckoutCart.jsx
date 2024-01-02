@@ -5,7 +5,7 @@ import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
 //CUSTOM HOOKS
-import { useCart } from "../../customHooks/useCart";
+import { useCart } from "../../customHooks/useCart.js";
 //>
 
 // REACT-BOOSTRAP

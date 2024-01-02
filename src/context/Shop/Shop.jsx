@@ -7,7 +7,8 @@ const initialState = JSON.parse(window.localStorage.getItem('cart')) || [];
 const CART_ACTION_TYPES = {
     ADD_TO_CART : 'ADD_TO_CART',
     REMOVE_FROM_CART : 'REMOVE_FROM_CART',
-    CLEAN_CART : 'CLEAN_CART'
+    CLEAN_CART : 'CLEAN_CART',
+    TOTAL_CART: 'TOTAL_CART'
 };
 
 const updateCartLocalStorage = (state) => window.localStorage.setItem('cart', JSON.stringify(state));
@@ -60,14 +61,12 @@ const reducer = ( state , action ) => {
         };
 
         // case CART_ACTION_TYPES.TOTAL_CART: {
-        //     const total = initialState.map(item => {
-        //         const parcialTotal = 0;
-        //         if (item.quantity > 1) {
-        //             parcialTotal += item.quantity * item.price
-        //         } else parcialTotal += item.price
-        //     });
-        //     return [...initialState , total ];
-        // }
+        //     if (state.length > 0) {
+        //         const total = state.reduce(( acc ,item ) => acc + item.total ,0);
+        //         updateCartLocalStorage(...state, ...total)
+        //         return total;
+        //     }
+        // };
         
         default: {
             return {...state}
@@ -80,11 +79,13 @@ export function ShopProvider ({ children }) {
    const [ state , dispatch ] = useReducer( reducer, initialState);
 
 
-   const addToCart = product => dispatch({ type: CART_ACTION_TYPES.ADD_TO_CART, payload: product });
+    const addToCart = product => dispatch({ type: CART_ACTION_TYPES.ADD_TO_CART, payload: product });
 
     const removeFromCart = product => dispatch({ type: CART_ACTION_TYPES.REMOVE_FROM_CART, payload: product });
 
     const clearCart = () => dispatch({ type: CART_ACTION_TYPES.CLEAN_CART });
+
+    // const totalAmountCart = () => dispatch({ type: CART_ACTION_TYPES.TOTAL_CART });
 
     return (
         <ShopContext.Provider value={{ cart : state , addToCart, removeFromCart , clearCart }}>
