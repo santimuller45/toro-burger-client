@@ -1,6 +1,7 @@
 import React from "react";
 import { useState , useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import styles from './Cart.module.css'
 
 //CUSTOM HOOKS
 import { useCart } from "../../customHooks/useCart.js";
@@ -21,7 +22,6 @@ function Cart () {
         cart.length > 0 
         ?
         setTotalCart(cart.reduce(( acc ,item ) => acc + item.total ,0))
-        // setTotalCart(totalAmountCart)
         : setTotalCart(0);
     };
 
@@ -30,12 +30,11 @@ function Cart () {
     },[cart])
 
     return (
-        <div>
-            {console.log(cart)}
+        <div className={styles.container}>
             <Table striped bordered hover size="sm">
                 <thead>
                     <tr className="text-center">
-                        <th>Menú</th>
+                        <th>Detalle</th>
                         <th>Cantidad</th>
                         <th>Precio Unidad</th>
                         <th>Subtotal</th>

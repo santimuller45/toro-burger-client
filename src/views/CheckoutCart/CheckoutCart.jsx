@@ -36,7 +36,7 @@ const CheckoutCart = () => {
     },[ cart, methodPay, delivery , user ])
 
     return (
-        <div>
+        <div className={style.container}>
             <h1 className="text-center">Detalle de Compra</h1>
             <Table striped bordered hover size="sm">
                 <thead>

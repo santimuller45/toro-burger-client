@@ -59,14 +59,6 @@ const reducer = ( state , action ) => {
             updateCartLocalStorage([]);
             return []; 
         };
-
-        // case CART_ACTION_TYPES.TOTAL_CART: {
-        //     if (state.length > 0) {
-        //         const total = state.reduce(( acc ,item ) => acc + item.total ,0);
-        //         updateCartLocalStorage(...state, ...total)
-        //         return total;
-        //     }
-        // };
         
         default: {
             return {...state}
