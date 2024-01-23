@@ -1,8 +1,13 @@
 import React from "react";
 import style from "./CheckoutCart.module.css";
 import { useEffect , useState } from "react";
-import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+
+//REDUX
+import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
+import { setNewOrder } from "../../redux/actions/actionsOrder.js";
+//>
 
 //CUSTOM HOOKS
 import { useCart } from "../../customHooks/useCart.js";
@@ -17,10 +22,11 @@ const CheckoutCart = () => {
 
     const { cart } = useCart();
     const user = useSelector(state => state.userLogin);
+    const dispatch = useDispatch();
     const navigate = useNavigate();
 
-    const [ methodPay , setMethodPay ] = useState('MercadoPago');
-    const [ delivery , setDelivery ] = useState('Retirar');
+    const [ methodPay , setMethodPay ] = useState('MERCADOPAGO');
+    const [ delivery , setDelivery ] = useState('RETIRAR');
 
     const [ totalCart , setTotalCart ] = useState(0);
     const sumaTotal = () =>  {
@@ -29,6 +35,23 @@ const CheckoutCart = () => {
         setTotalCart(cart.reduce(( acc ,item ) => acc + item.total ,0))
         : setTotalCart(0);
     };
+    
+    const enviarPedido = () => {
+        const pedido = {
+            foodOrder: cart.map(elem => `${elem.quantity} ${elem.name}`),
+            amount: totalCart,
+            //editar el envio si es verdadero o falso
+            shipping: 500,
+            totalAmount: totalCart,
+            comentary: "AGREGAR COMENTARIO",
+            orderStatus: "PENDIENTE",
+            paymenType: methodPay,
+            //falta agregar el usuario que hace el pedido
+            userEmail: user.email
+        };
+        dispatch(setNewOrder(pedido));
+
+    }
 
     useEffect(() => {
         !user.email && navigate('/login');
@@ -73,20 +96,20 @@ const CheckoutCart = () => {
             <div className={style.selects}>
                 <label> Método de Pago </label>
                 <select className="text-center" onChange={(e) => setMethodPay(e.target.value)}>
-                    <option className="text-center" name="MercadoPago" value="MercadoPago">Mercado Pago</option>
-                    <option className="text-center" name="Efectivo" value="Efectivo">Efectivo</option>
+                    <option className="text-center" name="MERCADOPAGO" value="MERCADOPAGO">Mercado Pago</option>
+                    <option className="text-center" name="EFECTIVO" value="EFECTIVO">Efectivo</option>
                 </select>
             </div>
             <div className={style.selects}>
                 <label> Pedido a </label>
                 <select className="text-center" onChange={(e) => setDelivery(e.target.value)}>
-                    <option className="text-center" name="Retirar" value="Retirar">Retirar</option>
-                    <option className="text-center" name="Enviar" value="Enviar">Enviar</option>
+                    <option className="text-center" name="RETIRAR" value="RETIRAR">Retirar</option>
+                    <option className="text-center" name="ENVIAR" value="ENVIAR">Enviar</option>
                 </select>
             </div>
             <div className={style.botones}>
                 <Button variant="danger" onClick={() => navigate(-1)}>Volver</Button>
-                <Button variant="success" onClick={() => {}}>Pagar</Button>
+                <Button variant="success" onClick={enviarPedido}>Pagar</Button>
             </div>
         </div>
     )

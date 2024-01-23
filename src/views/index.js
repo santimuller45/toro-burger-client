@@ -13,6 +13,7 @@ import Cart from "./Cart/Cart.jsx";
 import CheckoutCart from "./CheckoutCart/CheckoutCart.jsx";
 import SettingsAdmin from "./SettingsAdmin/SettingsAdmin.jsx";
 import AdminFood from "./SettingsAdmin/AdminFood/AdminFood.jsx";
+import OrderPanel from "./OrdersPanel/OrdersPanel.jsx";
 
 export { 
     LandingPage,
@@ -29,5 +30,6 @@ export {
     Cart,
     CheckoutCart,
     SettingsAdmin,
-    AdminFood 
+    AdminFood,
+    OrderPanel
 };
