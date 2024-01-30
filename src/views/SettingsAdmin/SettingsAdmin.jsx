@@ -1,5 +1,9 @@
 import React from "react";
 
+//Componentes de administrador
+import AdminFood from "./AdminFood/AdminFood.jsx";
+
+//
 //REACT BOOSTRAP
 // import ListGroup from 'react-bootstrap/ListGroup';
 

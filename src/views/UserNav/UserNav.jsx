@@ -34,6 +34,7 @@ const UserNav = () => {
     const pathToAccount = () => navigate('/account');
     const pathToShop = () => navigate('/cart');
     const pathToSettingsFoods = () => navigate('/settings/foods');
+    const pathToOrders = () => navigate('/settings/orders');
 
 
     useEffect(() => {
@@ -52,28 +53,22 @@ return (
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
             <strong>
-              <NavDropdown title="🛒Carrito" id="shop-nav-dropdown">
-                <NavDropdown.Item onClick={pathToShop}><strong>Ver Carrito</strong></NavDropdown.Item>
-              </NavDropdown>
-            </strong>
             {user.email
                 ?   (<strong><NavDropdown title={`🙋‍♂️${user.firstname}`} id="account-nav-dropdown">
                         <NavDropdown.Item onClick={pathToAccount}><strong>Mi Cuenta</strong></NavDropdown.Item>
                         <NavDropdown.Item onClick={handleLogOut}><strong>Log out</strong></NavDropdown.Item>
                     </NavDropdown></strong>)
-                :  (<Link to={'/login'} className={styles.item}><strong>🙋‍♂️ Log In</strong></Link>)
+                :  (<Link to={'/login'} className={styles.item}><strong>🙋‍♂️ LogIn</strong></Link>)
             }
+              <NavDropdown title="🛒Carrito" id="shop-nav-dropdown">
+                <NavDropdown.Item onClick={pathToShop}><strong>Ver Carrito</strong></NavDropdown.Item>
+              </NavDropdown>
+            </strong>
             <strong>
               <NavDropdown title="🛠 Settings" id="settings-nav-dropdown">
-                <NavDropdown.Item onClick={pathToSettingsFoods}>Modificar Menú</NavDropdown.Item>
-                {/* <NavDropdown.Item href="#action/3.2">
-                  Another action
-                </NavDropdown.Item>
-                <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
+                <NavDropdown.Item onClick={pathToOrders}>Pedidos</NavDropdown.Item>
                 <NavDropdown.Divider />
-                <NavDropdown.Item href="#action/3.4">
-                  Separated link
-                </NavDropdown.Item> */}
+                <NavDropdown.Item onClick={pathToSettingsFoods}>Modificar Menú</NavDropdown.Item>
               </NavDropdown>
             </strong>
           </Nav>

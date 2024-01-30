@@ -10,8 +10,6 @@ import { useCart } from "../../customHooks/useCart.js";
 import Button from "react-bootstrap/esm/Button";
 import Card from 'react-bootstrap/Card';
 import ListGroup from 'react-bootstrap/ListGroup';
-import CardGroup from 'react-bootstrap/CardGroup';
-
 //>
 
 // ALERTAS
