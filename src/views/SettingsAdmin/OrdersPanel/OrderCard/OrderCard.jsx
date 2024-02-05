@@ -1,7 +1,6 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import style from './OrderCard.module.css'
-
-// import { Link } from "react-router-dom";
 
 //REACT BOOSTRAP
 import Card from 'react-bootstrap/Card';
@@ -9,16 +8,20 @@ import Card from 'react-bootstrap/Card';
 
 const OrderCard = ( order ) => {
 
-    const { id ,index ,foodOrder ,totalAmount } = order;
+    const { id ,index ,foodOrder ,totalAmount, orderStatus ,updated, paymenType, comentary , userEmail } = order;
+
     return ( 
     <div>
         <Card key={index} className={style.card}>
             <Card.Body>
-                <Card.Title>Pedido N° {index+1}</Card.Title>
-                {foodOrder?.map((food, index) => <Card.Text key={index}>{food}</Card.Text>)}
-                <Card.Text><strong>Monto ${totalAmount}</strong></Card.Text>
-                {/* <Link to={`/detail/${id}`}>aqui</Link> */}
-                {/* FALTA AGREGAR LA URL PARA ENTRAR AL PEDIDO */}
+                <Card.Title><strong>Pedido N° {index+1}</strong></Card.Title>
+                <Card.Subtitle>{userEmail}</Card.Subtitle>
+                <Card.Text>HORA:<strong>{updated}</strong></Card.Text>
+                {foodOrder?.map((food, index) => <Card.Text key={index}><strong>{food}</strong></Card.Text>)}
+                <Card.Text>TIPO DE PAGO:<strong>{paymenType}</strong></Card.Text>
+                <Card.Text>MONTO <strong>${totalAmount}</strong></Card.Text>
+                <Card.Text>ESTADO: <strong>{orderStatus}</strong></Card.Text>
+                {comentary ? <Card.Text>COMENTARIOS:<strong>{comentary}</strong></Card.Text> : <Link to={`/orders/detail/${id}`}>aqui</Link> }
             </Card.Body>
         </Card>
     </div>)

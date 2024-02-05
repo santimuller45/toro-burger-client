@@ -24,8 +24,10 @@ const OrderCardContainer = () => {
                             key={elem.id}
                             id={elem.id}
                             index={index}
-                            foodOrder={elem.foodOrder}
                             totalAmount={elem.totalAmount}
+                            paymenType={elem.paymenType}
+                            orderStatus={elem.orderStatus}
+                            updated={elem.updated}
                         />
                     ))
             }
@@ -34,8 +36,3 @@ const OrderCardContainer = () => {
 };
 
 export default OrderCardContainer;
-
-
-<CardGroup className={style.cardContainer}>
-                <OrderCard/>
-</CardGroup>

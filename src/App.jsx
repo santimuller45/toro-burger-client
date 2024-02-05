@@ -23,7 +23,8 @@ import {
   CheckoutCart,
   SettingsAdmin,
   AdminFood,
-  OrderPanel
+  OrderPanel,
+  OrderDetail
 } from './views/index.js';
 //>
 
@@ -57,6 +58,7 @@ function App() {
         <Route path='/settings' element={<SettingsAdmin/>}></Route>
         <Route path='/settings/foods' element={<AdminFood/>}></Route>
         <Route path='/settings/orders' element={<OrderPanel/>}></Route>
+        <Route path='/orders/detail/:orderID' element={<OrderDetail/>}></Route>
       </Routes>
       <footer>
         <Footer/>

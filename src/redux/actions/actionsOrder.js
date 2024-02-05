@@ -18,8 +18,8 @@ export const getAllOrders =  () => {
 export const setNewOrder = (order) => {
     return async function (dispatch) {
         try {
-            const { foodOrder ,amount, shipping, totalAmount, comentary, orderStatus, paymenType } = order
-            const result = await axios.post('/orders',{ foodOrder, amount, shipping, totalAmount, comentary, orderStatus, paymenType } );
+            const { foodOrder ,amount, shipping, totalAmount, comentary, orderStatus, paymenType, userEmail } = order
+            const result = await axios.post('/orders',{ foodOrder, amount, shipping, totalAmount, comentary, orderStatus, paymenType, userEmail } );
             return dispatch({
                 type: SET_NEW_ORDER,
                 payload: result.data

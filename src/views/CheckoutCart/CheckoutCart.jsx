@@ -16,6 +16,7 @@ import { useCart } from "../../customHooks/useCart.js";
 // REACT-BOOSTRAP
 import Table from 'react-bootstrap/Table';
 import Button from "react-bootstrap/esm/Button";
+import swal from 'sweetalert';
 //>
 
 const CheckoutCart = () => {
@@ -50,7 +51,8 @@ const CheckoutCart = () => {
             userEmail: user.email
         };
         dispatch(setNewOrder(pedido));
-
+        swal("Gracias por tu compra!", "nombre del usuario", "success");
+        navigate('/')
     }
 
     useEffect(() => {
@@ -70,6 +72,9 @@ const CheckoutCart = () => {
                         <th>Subtotal</th>
                     </tr>
                 </thead>
+                <tbody>
+                    
+                </tbody>
                 {cart?.map(elem => (
                     <tbody key={elem.id}>
                         <tr className="text-center">
