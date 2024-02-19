@@ -21,7 +21,7 @@ import swal from 'sweetalert';
 
 const CheckoutCart = () => {
 
-    const { cart } = useCart();
+    const { cart , clearCart } = useCart();
     const user = useSelector(state => state.userLogin);
     const dispatch = useDispatch();
     const navigate = useNavigate();
@@ -51,7 +51,8 @@ const CheckoutCart = () => {
             userEmail: user.email
         };
         dispatch(setNewOrder(pedido));
-        swal("Gracias por tu compra!", "nombre del usuario", "success");
+        swal("Gracias por tu compra!", `${user.firstname} ${user.lastname}` , "success");
+        clearCart();
         navigate('/')
     }
 

@@ -12,7 +12,7 @@ const OrderCard = ( order ) => {
 
     return ( 
     <div>
-        <Card key={index} className={style.card}>
+        <Card key={id} className={style.card}>
             <Card.Body>
                 <Card.Title><strong>Pedido N° {index+1}</strong></Card.Title>
                 <Card.Subtitle>{userEmail}</Card.Subtitle>

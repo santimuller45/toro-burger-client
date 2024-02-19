@@ -24,6 +24,7 @@ const OrderCardContainer = () => {
                             key={elem.id}
                             id={elem.id}
                             index={index}
+                            userEmail={elem?.users[0]?.email}
                             totalAmount={elem.totalAmount}
                             paymenType={elem.paymenType}
                             orderStatus={elem.orderStatus}

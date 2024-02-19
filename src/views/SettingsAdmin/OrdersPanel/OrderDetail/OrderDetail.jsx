@@ -21,7 +21,10 @@ const OrderDetail = () => {
     const orderDetail = async () => {
         try {
             const result = (await axios.get(`/orders/${orderID}`)).data
-            if (result) setOrder(result)
+            if (result) setOrder({
+                ...result,
+                userEmail: result.users[0].email
+            })
         } catch (error) {
             window.alert(error.message)
         }
@@ -29,13 +32,12 @@ const OrderDetail = () => {
 
     useEffect(() => {
         order.id ? null : orderDetail()
-    },[])
+    },[order])
     return (
         <div className={style.container}>
-            <div className="d-grid gap-2">
-                <Button variant="secondary" size="lg" onClick={() => navigate(-1)}>Volver</Button>
-            </div>
-            <OrderCard 
+            {console.log(order.userEmail)}
+            <OrderCard
+                key={order.id} 
                 id={order.id}
                 index={order.id}
                 userEmail={order.userEmail}
@@ -46,6 +48,9 @@ const OrderDetail = () => {
                 paymenType={order.paymenType}
                 comentary={order.comentary}
             />
+            <div className="d-grid gap-2">
+                <Button variant="secondary" size="lg" onClick={() => navigate(-1)}>Volver</Button>
+            </div>
         </div>
     )
 };
