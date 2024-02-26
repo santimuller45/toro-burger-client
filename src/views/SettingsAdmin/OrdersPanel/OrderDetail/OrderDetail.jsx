@@ -23,9 +23,20 @@ const OrderDetail = () => {
             const result = (await axios.get(`/orders/${orderID}`)).data
             if (result) setOrder({
                 ...result,
-                userEmail: result.users[0].email
+                userEmail: result.users[0].email,
+                userFirstname: result.users[0].firstname,
+                userLastname: result.users[0].lastname
             })
         } catch (error) {
+            window.alert(error.message)
+        }
+    }
+
+    const modifyOrder = async () => {
+        try {
+            await axios.put('/orders', { id: order.id , status:"FINALIZADO"})
+            navigate(-1)
+        } catch (error) {   
             window.alert(error.message)
         }
     }
@@ -35,12 +46,14 @@ const OrderDetail = () => {
     },[order])
     return (
         <div className={style.container}>
-            {console.log(order.userEmail)}
+            <h1>HACER TABLA</h1>
             <OrderCard
                 key={order.id} 
                 id={order.id}
                 index={order.id}
                 userEmail={order.userEmail}
+                userFirstname={order.userFirstname}
+                userLastname={order.userLastname}
                 foodOrder={order.foodOrder}
                 totalAmount={order.totalAmount}
                 orderStatus={order.orderStatus}
@@ -48,6 +61,9 @@ const OrderDetail = () => {
                 paymenType={order.paymenType}
                 comentary={order.comentary}
             />
+            <div className="d-grid gap-2">
+                <Button variant="success" size="lg" onClick={() => modifyOrder()}>Finalizado</Button>
+            </div>
             <div className="d-grid gap-2">
                 <Button variant="secondary" size="lg" onClick={() => navigate(-1)}>Volver</Button>
             </div>
