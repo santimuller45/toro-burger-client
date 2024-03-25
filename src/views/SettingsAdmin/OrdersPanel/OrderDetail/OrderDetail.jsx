@@ -3,6 +3,7 @@ import { useState , useEffect } from "react";
 import { useParams , useNavigate } from "react-router-dom";
 import axios from "axios";
 import style from './OrderDetail.module.css'
+import { modifyOrderStatus } from "../../../../redux/actions/actionsOrder.js";
 
 //COMPONENTES
 import OrderCard from "../OrderCard/OrderCard.jsx";
@@ -10,6 +11,7 @@ import OrderCard from "../OrderCard/OrderCard.jsx";
 
 //REACT-BOOSTRAP
 import Button from 'react-bootstrap/Button';
+import { useDispatch } from "react-redux";
 //>
 
 const OrderDetail = () => {
@@ -17,8 +19,9 @@ const OrderDetail = () => {
     const { orderID } = useParams();
     const navigate = useNavigate();
     const [ order , setOrder ] = useState({});
+    const dispatch = useDispatch();
 
-    const orderDetail = async () => {
+    const showOrderDetails = async () => {
         try {
             const result = (await axios.get(`/orders/${orderID}`)).data
             if (result) setOrder({
@@ -30,19 +33,17 @@ const OrderDetail = () => {
         } catch (error) {
             window.alert(error.message)
         }
-    }
+    };
 
-    const modifyOrder = async () => {
-        try {
-            await axios.put('/orders', { id: order.id , status:"FINALIZADO"})
-            navigate(-1)
-        } catch (error) {   
-            window.alert(error.message)
-        }
-    }
+    const handleModifyOrder = async (status) => {
+        await dispatch(modifyOrderStatus(order.id, status));
+        navigate(-1)
+    };
 
     useEffect(() => {
-        order.id ? null : orderDetail()
+        order.id 
+        ? null 
+        : showOrderDetails()
     },[order])
     return (
         <div className={style.container}>
@@ -62,9 +63,8 @@ const OrderDetail = () => {
                 comentary={order.comentary}
             />
             <div className="d-grid gap-2">
-                <Button variant="success" size="lg" onClick={() => modifyOrder()}>Finalizado</Button>
-            </div>
-            <div className="d-grid gap-2">
+                <Button variant="warning" size="lg" onClick={() => handleModifyOrder("EN PREPARACIÓN")}>En preparación</Button>
+                <Button variant="success" size="lg" onClick={() => handleModifyOrder("FINALIZADO")}>Finalizado</Button>
                 <Button variant="secondary" size="lg" onClick={() => navigate(-1)}>Volver</Button>
             </div>
         </div>

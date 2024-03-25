@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { GET_ALL_ORDERS, SET_NEW_ORDER } from '../types/typesOrder.js'
+import { GET_ALL_ORDERS, SET_NEW_ORDER , ORDER_IN_PROCESS } from '../types/typesOrder.js'
 
 export const getAllOrders =  () => {
     return async function (dispatch) {
@@ -25,6 +25,25 @@ export const setNewOrder = (order) => {
                 payload: result.data
             })
         } catch (error) {
+            return {error: error.message}
+        }
+    }
+};
+
+// export const modifyOrderStatus = async (id, status) => {
+//     try {
+//         return await axios.put('/orders', { id , status });
+//     } catch (error) {   
+//         return {error: error.message}
+//     }
+// };
+
+export const modifyOrderStatus =  (id, status) => {
+    return async function (dispatch) {
+        try {
+            await axios.put('/orders', { id , status });
+            return dispatch({ type: ORDER_IN_PROCESS })
+        } catch (error) {   
             return {error: error.message}
         }
     }

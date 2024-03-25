@@ -1,10 +1,12 @@
 import { GET_FOOD_BY_NAME, GET_FOOD_MENU } from "./types/typesFood.js";
 import { LOG_IN_USER , LOG_OUT_USER , ALL_USERS , SET_USER } from "./types/typesUser.js";
-import { SET_NEW_ORDER, GET_ALL_ORDERS } from "./types/typesOrder.js";
+import { SET_NEW_ORDER ,GET_ALL_ORDERS ,ORDER_IN_PROCESS} from "./types/typesOrder.js";
 
 const initialState = {
     menu: [],
     orders: [],
+    ordersInProcess: [],
+    ordersEnded:[],
     allUsers: [],
     userLogin: []
 };
@@ -36,6 +38,18 @@ const rootReducer = (state = initialState, action) => {
                 orders: [...orders , action.payload]
             }
         }
+        //DETAIL ORDER
+        //ORDER IN PROCESS
+        case ORDER_IN_PROCESS: {
+            let orderProcess = state.orders.filter(elemento => elemento.orderStatus === "EN PREPARACIÓN");
+            let ordersNotInProcess = state.orders.filter(elemento => elemento.orderStatus === "PENDIENTE");
+            return {
+                ...state,
+                orders: ordersNotInProcess,
+                ordersInProcess: orderProcess
+            }
+        }
+
         ////////////////////////////////////////////////////////////
         case ALL_USERS: {
             return {

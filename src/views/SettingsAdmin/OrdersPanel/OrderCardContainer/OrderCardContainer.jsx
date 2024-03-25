@@ -1,21 +1,9 @@
 import React from 'react';
-import { useEffect } from 'react';
 import CardGroup from 'react-bootstrap/CardGroup';
 import OrderCard from '../OrderCard/OrderCard.jsx';
 import style from './OrderCardContainer.module.css'
 
-import { useSelector, useDispatch } from "react-redux";
-import { getAllOrders } from '../../../../redux/actions/actionsOrder.js';
-
-const OrderCardContainer = () => {
-
-
-    const dispatch = useDispatch();
-    const orders = useSelector(state => state.orders)
-
-    useEffect(() => {
-        dispatch(getAllOrders());
-    },[dispatch])
+const OrderCardContainer = ( {orders} ) => {
 
     return (
         <CardGroup className={style.cardContainer}>

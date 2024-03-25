@@ -11,6 +11,8 @@ import OrderCardContainer from "./OrderCardContainer/OrderCardContainer.jsx";
 const OrderPanel = () => {
 
     const dispatch = useDispatch();
+    const orders = useSelector(state => state.orders)
+    const ordersProcess = useSelector(state => state.ordersInProcess)
     
     useEffect(() => {
         dispatch(getAllOrders());
@@ -19,8 +21,11 @@ const OrderPanel = () => {
 
     return (
         <div className={style.container}>
-                <h3><strong>PEDIDOS</strong></h3>
-                <OrderCardContainer/>
+            <h1>MODIFICAR LOS PENDIENTES Y NO PENDIENTES // HACER OTRO COMPONENTE A PARTE PARA MOSTRARLOS</h1>
+                <h3><strong>PEDIDOS EN PREPARACIÓN</strong></h3>
+                <OrderCardContainer orders={ordersProcess}/>
+                <h3><strong>PEDIDOS PENDIENTES</strong></h3>
+                <OrderCardContainer orders={orders}/>
         </div>
     )
 };
