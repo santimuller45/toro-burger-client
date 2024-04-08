@@ -5,8 +5,8 @@ import { SET_NEW_ORDER ,GET_ALL_ORDERS ,ORDER_IN_PROCESS} from "./types/typesOrd
 const initialState = {
     menu: [],
     orders: [],
-    ordersInProcess: [],
-    ordersEnded:[],
+    // ordersInProcess: [],
+    // ordersEnded:[],
     allUsers: [],
     userLogin: []
 };
@@ -37,19 +37,16 @@ const rootReducer = (state = initialState, action) => {
                 ...state,
                 orders: [...orders , action.payload]
             }
-        }
-        //DETAIL ORDER
+        };
         //ORDER IN PROCESS
-        case ORDER_IN_PROCESS: {
-            let orderProcess = state.orders.filter(elemento => elemento.orderStatus === "EN PREPARACIÓN");
-            let ordersNotInProcess = state.orders.filter(elemento => elemento.orderStatus === "PENDIENTE");
-            return {
-                ...state,
-                orders: ordersNotInProcess,
-                ordersInProcess: orderProcess
-            }
-        }
-
+        // case ORDER_IN_PROCESS: {
+        //     const ordersNotInProcess = state.orders.filter(elemento => elemento.id !== action.payload.id);
+        //     return {
+        //         ...state,
+        //         orders: [ordersNotInProcess],
+        //         ordersInProcess: [...ordersNotInProcess, action.payload]
+        //     }
+        // };
         ////////////////////////////////////////////////////////////
         case ALL_USERS: {
             return {

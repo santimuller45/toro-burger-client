@@ -30,21 +30,16 @@ export const setNewOrder = (order) => {
     }
 };
 
-// export const modifyOrderStatus = async (id, status) => {
-//     try {
-//         return await axios.put('/orders', { id , status });
-//     } catch (error) {   
-//         return {error: error.message}
+// export const modifyOrderStatus =  (id, status) => {
+//     return async function (dispatch) {
+//         try {
+//             const result = await axios.put('/orders', { id , status });
+//             return dispatch({ 
+//                 type: ORDER_IN_PROCESS,
+//                 payload: result.data 
+//             })
+//         } catch (error) {   
+//             return {error: error.message}
+//         }
 //     }
 // };
-
-export const modifyOrderStatus =  (id, status) => {
-    return async function (dispatch) {
-        try {
-            await axios.put('/orders', { id , status });
-            return dispatch({ type: ORDER_IN_PROCESS })
-        } catch (error) {   
-            return {error: error.message}
-        }
-    }
-};

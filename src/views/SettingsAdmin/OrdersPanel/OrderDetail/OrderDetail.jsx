@@ -3,7 +3,7 @@ import { useState , useEffect } from "react";
 import { useParams , useNavigate } from "react-router-dom";
 import axios from "axios";
 import style from './OrderDetail.module.css'
-import { modifyOrderStatus } from "../../../../redux/actions/actionsOrder.js";
+// import { modifyOrderStatus } from "../../../../redux/actions/actionsOrder.js";
 
 //COMPONENTES
 import OrderCard from "../OrderCard/OrderCard.jsx";
@@ -11,7 +11,7 @@ import OrderCard from "../OrderCard/OrderCard.jsx";
 
 //REACT-BOOSTRAP
 import Button from 'react-bootstrap/Button';
-import { useDispatch } from "react-redux";
+// import { useDispatch } from "react-redux";
 //>
 
 const OrderDetail = () => {
@@ -19,7 +19,7 @@ const OrderDetail = () => {
     const { orderID } = useParams();
     const navigate = useNavigate();
     const [ order , setOrder ] = useState({});
-    const dispatch = useDispatch();
+    // const dispatch = useDispatch();
 
     const showOrderDetails = async () => {
         try {
@@ -35,9 +35,21 @@ const OrderDetail = () => {
         }
     };
 
+    // ESTADO DE REDUX
+
+    // const handleModifyOrder = async (status) => {
+    //     await dispatch(modifyOrderStatus(order.id, status));
+    //     navigate(-1)
+    // };
+
+    //HARD CODE
     const handleModifyOrder = async (status) => {
-        await dispatch(modifyOrderStatus(order.id, status));
-        navigate(-1)
+        try {
+            await axios.put('/orders', { id: orderID , status });
+            navigate(-1);
+        } catch (error) {   
+            return {error: error.message}
+        }
     };
 
     useEffect(() => {
@@ -47,7 +59,6 @@ const OrderDetail = () => {
     },[order])
     return (
         <div className={style.container}>
-            <h1>HACER TABLA</h1>
             <OrderCard
                 key={order.id} 
                 id={order.id}

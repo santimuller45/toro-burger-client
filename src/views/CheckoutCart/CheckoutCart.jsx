@@ -26,7 +26,7 @@ const CheckoutCart = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
-    const [ methodPay , setMethodPay ] = useState('MERCADOPAGO');
+    const [ methodPay , setMethodPay ] = useState('EFECTIVO');
     const [ delivery , setDelivery ] = useState('RETIRAR');
 
     const [ totalCart , setTotalCart ] = useState(0);
@@ -47,7 +47,6 @@ const CheckoutCart = () => {
             comentary: "AGREGAR COMENTARIO",
             orderStatus: "PENDIENTE",
             paymenType: methodPay,
-            //falta agregar el usuario que hace el pedido
             userEmail: user.email
         };
         dispatch(setNewOrder(pedido));
@@ -102,8 +101,8 @@ const CheckoutCart = () => {
             <div className={style.selects}>
                 <label> Método de Pago </label>
                 <select className="text-center" onChange={(e) => setMethodPay(e.target.value)}>
-                    <option className="text-center" name="MERCADOPAGO" value="MERCADOPAGO">Mercado Pago</option>
                     <option className="text-center" name="EFECTIVO" value="EFECTIVO">Efectivo</option>
+                    <option className="text-center" name="TRANSFERENCIA" value="TRANSFERENCIA">Transferencia</option>
                 </select>
             </div>
             <div className={style.selects}>

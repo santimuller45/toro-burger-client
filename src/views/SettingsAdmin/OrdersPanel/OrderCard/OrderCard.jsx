@@ -23,7 +23,7 @@ const OrderCard = ( order ) => {
                 <Card.Text>TIPO DE PAGO:<strong>{paymenType}</strong></Card.Text>
                 <Card.Text>MONTO <strong>${totalAmount}</strong></Card.Text>
                 <Card.Text>ESTADO: <strong>{orderStatus}</strong></Card.Text>
-                {comentary ? <Card.Text>COMENTARIOS:<strong>{comentary}</strong></Card.Text> : <Link to={`/orders/detail/${id}`}>x</Link> }
+                {comentary ? <Card.Text>COMENTARIOS:<strong>{comentary}</strong></Card.Text> : null }
             </Card.Body>
         </Card>
     </div>)
