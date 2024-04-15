@@ -1,0 +1,59 @@
+import React from "react";
+import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
+
+//REACT-BOOSTRAP
+import Table from "react-bootstrap/esm/Table.js";
+//>
+
+//Redux
+
+//>
+
+//FONT AWESOME -- ICONOS
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faEye } from '@fortawesome/free-solid-svg-icons';
+//>
+
+const ListPendingOrders = () => {
+
+    const orders = useSelector(state => state.ordersPending);
+
+    return (
+        <div className="container-fluid col-8 mt-3">
+            <h3><strong>PEDIDOS PENDIENTES</strong></h3>
+                <Table striped bordered hover>
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Usuario</th>
+                            <th>Orden</th>
+                            <th>Total</th>
+                            <th>Estado del pedido</th>
+                            <th>Hora del pedido</th>
+                            <th>Tipo de pago</th>
+                            <th>Comentarios</th>
+                            <th>Detalles</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {orders.map( order => (
+                            <tr key={order.id}>
+                                <td>{order.id}</td>
+                                <td>{order?.users[0]?.email}</td>
+                                <td>{order.foodOrder}</td>
+                                <td>{order.totalAmount}</td>
+                                <td>{order.orderStatus}</td>
+                                <td>{order.updated}</td>
+                                <td>{order.paymenType}</td>
+                                <td>{order.comentary}</td>
+                                <td><Link to={`/orders/detail/${order.id}`}><FontAwesomeIcon icon={faEye}/></Link></td>
+                            </tr>
+                        ))}
+                    </tbody>
+                </Table>
+            </div>
+    )
+};
+
+export default ListPendingOrders;

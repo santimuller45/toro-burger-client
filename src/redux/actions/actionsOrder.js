@@ -4,10 +4,12 @@ import { GET_ALL_ORDERS, SET_NEW_ORDER , ORDER_IN_PROCESS } from '../types/types
 export const getAllOrders =  () => {
     return async function (dispatch) {
         try {
-            const result = await axios('/orders');
+            const result = (await axios('/orders')).data;
             return dispatch({
                 type: GET_ALL_ORDERS,
-                payload: result.data
+                payload: result.orderPending,
+                payload2: result.orderInProcess,
+                payload3: result.orderCompleted
             })
         } catch (error) {
             return {error: error.message}
@@ -30,16 +32,16 @@ export const setNewOrder = (order) => {
     }
 };
 
-// export const modifyOrderStatus =  (id, status) => {
-//     return async function (dispatch) {
-//         try {
-//             const result = await axios.put('/orders', { id , status });
-//             return dispatch({ 
-//                 type: ORDER_IN_PROCESS,
-//                 payload: result.data 
-//             })
-//         } catch (error) {   
-//             return {error: error.message}
-//         }
-//     }
-// };
+export const modifyOrderStatus =  (id, status) => {
+    return async function (dispatch) {
+        try {
+            const result = await axios.put('/orders', { id , status });
+            return dispatch({ 
+                type: ORDER_IN_PROCESS,
+                payload: result.data 
+            })
+        } catch (error) {   
+            return {error: error.message}
+        }
+    }
+};

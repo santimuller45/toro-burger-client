@@ -4,9 +4,9 @@ import { SET_NEW_ORDER ,GET_ALL_ORDERS ,ORDER_IN_PROCESS} from "./types/typesOrd
 
 const initialState = {
     menu: [],
-    orders: [],
-    // ordersInProcess: [],
-    // ordersEnded:[],
+    ordersPending: [],
+    ordersInProcess: [],
+    ordersCompleted:[],
     allUsers: [],
     userLogin: []
 };
@@ -29,7 +29,9 @@ const rootReducer = (state = initialState, action) => {
         case GET_ALL_ORDERS: {
             return {
                 ...state,
-                orders: action.payload
+                ordersPending: action.payload,
+                ordersInProcess: action.payload2,
+                ordersCompleted: action.payload3
             }
         };
         case SET_NEW_ORDER:{
@@ -38,13 +40,11 @@ const rootReducer = (state = initialState, action) => {
                 orders: [...orders , action.payload]
             }
         };
-        //ORDER IN PROCESS
         // case ORDER_IN_PROCESS: {
-        //     const ordersNotInProcess = state.orders.filter(elemento => elemento.id !== action.payload.id);
+        //     // const ordersNotInProcess = state.orders.filter(elemento => elemento.id !== action.payload.id);
         //     return {
         //         ...state,
-        //         orders: [ordersNotInProcess],
-        //         ordersInProcess: [...ordersNotInProcess, action.payload]
+        //         ordersInProcess: [...state.ordersInProcess, action.payload]
         //     }
         // };
         ////////////////////////////////////////////////////////////
